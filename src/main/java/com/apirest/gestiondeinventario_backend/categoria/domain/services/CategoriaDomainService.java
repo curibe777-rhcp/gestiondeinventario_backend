@@ -19,8 +19,8 @@ public class CategoriaDomainService {
         return categoriaRepository.save(categoria);
     }
 
-    public List<Categoria> listarCategorias(){
-        return categoriaRepository.findAll();
+    public List<Categoria> listarCategorias(Integer esDesactivado){
+        return categoriaRepository.findByEsDesactivado(1);
     }
 
     public Categoria editarCategoria(Integer idCategoria, String nuevoNombre){
