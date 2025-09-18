@@ -1,7 +1,7 @@
-package com.apirest.gestiondeinventario_backend.categoria.domain.entities;
+package com.apirest.gestiondeinventario_backend.marca.domain.entities;
 
 import java.time.LocalDateTime;
-import jakarta.persistence.*;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,27 +9,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.util.Set;
-import com.apirest.gestiondeinventario_backend.subcategoria.domain.entities.Subcategoria;
 
 @Data
 @Entity
-@Table(name = "categoria")
-public class Categoria {
-    
+@Table(name = "marca")
+public class Marca {
+
     @Id
-    @Column(name = "id_categoria")
+    @Column(name = "id_marca")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategoria;
+    private Long idMarca;
 
-    @Column(name = "codigo")
-    private Integer codigo;
-
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
-
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private Set<Subcategoria> subcategorias;
 
     @Column(name = "fecha_creacion", insertable = false, updatable = false)
     private LocalDateTime fechaCreacion;
@@ -40,4 +32,3 @@ public class Categoria {
     @Column(name = "esdesactivado", insertable = false)
     private Integer esDesactivado;
 }
-
