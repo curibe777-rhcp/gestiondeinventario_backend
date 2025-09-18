@@ -1,10 +1,13 @@
 package com.apirest.gestiondeinventario_backend.categoria.application.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.apirest.gestiondeinventario_backend.categoria.application.dto.request.InsertarCategoriaRequestDto;
 import com.apirest.gestiondeinventario_backend.categoria.application.dto.response.InsertarCategoriaResponseDto;
 import com.apirest.gestiondeinventario_backend.categoria.domain.entities.Categoria;
 import com.apirest.gestiondeinventario_backend.common.application.IEntityDtoMapper;
 
+@Component
 public class InsertarCategoriaMapper implements IEntityDtoMapper<Categoria, InsertarCategoriaRequestDto, InsertarCategoriaResponseDto> {
 
     @Override
