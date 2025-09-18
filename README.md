@@ -18,7 +18,9 @@ Las funcionalidades principales son:
 - Administrar usuarios del sistema (empleados o responsables de almacén).
 
 # Diseño de la Base de Datos
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d65f6128-be46-4f3d-95a1-2f2cb3ffb244" alt="Diseño de la BD" width="600">
+</p>
 
 # Endpoints
 
