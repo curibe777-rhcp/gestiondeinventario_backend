@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class InsertarMarcaRequestDto {
+    private Integer idMarca;
     private String nombre;
 }
 

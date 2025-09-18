@@ -18,9 +18,9 @@ public class Marca {
     @Id
     @Column(name = "id_marca")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMarca;
+    private Integer idMarca;
 
-    @Column(name = "nombre", nullable = false, length = 100)
+    @Column(name = "nombre")
     private String nombre;
 
     @Column(name = "fecha_creacion", insertable = false, updatable = false)

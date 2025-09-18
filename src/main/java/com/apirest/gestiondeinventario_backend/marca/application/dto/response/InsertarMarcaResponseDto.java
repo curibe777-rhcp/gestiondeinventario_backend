@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class InsertarMarcaResponseDto {
+    private Integer idMarca;
     private String nombre;
 }
