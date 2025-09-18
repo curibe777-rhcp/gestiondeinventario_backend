@@ -1,4 +1,4 @@
-package com.apirest.gestiondeinventario_backend.marca.infrastructure;
+package com.apirest.gestiondeinventario_backend.marca.infrastructure.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
