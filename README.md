@@ -24,3 +24,35 @@ Las funcionalidades principales son:
 
 # Endpoints
 
+## Endpoints - Producto
+
+| Método | URL       | Request DTO                     | Response DTO                     | Función                                      |
+|--------|-----------|---------------------------------|---------------------------------|---------------------------------------------|
+| POST   | /productos | InsertarProductoRequestDto       | InsertarProductoResponseDto      | Crea un nuevo producto en la base de datos. |
+| PUT    | /productos | EditarProductoRequestDto         | EditarProductoResponseDto        | Actualiza un producto existente.            |
+| DELETE | /productos | EliminarProductoRequestDto       | EliminarProductoResponseDto      | Marca un producto como desactivado (soft delete). |
+| GET    | /productos| (vacío)                          | List<ListarProductosResponseDto> | Lista los productos activos (`esDesactivado = 0`). |
+
+## Endpoints - Categoría
+
+| Método | URL        | Request DTO                     | Response DTO                     | Función                                     |
+|--------|------------|---------------------------------|---------------------------------|--------------------------------------------|
+| POST   | /categorias | InsertarCategoriaRequestDto      | InsertarCategoriaResponseDto     | Crea una nueva categoría.                  |
+| PUT    | /categorias | EditarCategoriaRequestDto        | EditarCategoriaResponseDto       | Actualiza una categoría existente.         |
+| DELETE | /categorias | EliminarCategoriaRequestDto      | EliminarCategoriaResponseDto     | Marca una categoría como desactivada.      |
+| GET    | /categorias | (vacío)                          | List<ListarCategoriaResponseDto> | Lista las categorías activas (`esDesactivado = 0`). |
+
+## Endpoints - Marca
+
+| Método | URL    | Request DTO                  | Response DTO                 | Función                                     |
+|--------|--------|------------------------------|------------------------------|--------------------------------------------|
+| POST   | /marcas | InsertarMarcaRequestDto      | InsertarMarcaResponseDto     | Crea una nueva marca de productos.         |
+| PUT    | /marcas | EditarMarcaRequestDto        | EditarMarcaResponseDto       | Actualiza una marca existente.             |
+| DELETE | /marcas | EliminarMarcaRequestDto      | EliminarMarcaResponseDto     | Marca una marca como desactivada.          |
+| GET    | /marcas | (vacío)                      | List<ListarMarcaResponseDto> | Lista las marcas activas (`esDesactivado = 0`). |
+
+## Endpoints - Subcategoría
+
+| Método | URL             | Request DTO                       | Response DTO                       | Función                                    |
+|--------|-----------------|-----------------------------------|-----------------------------------|-------------------------------------------|
+| POST   | /subcategorias   | InsertarSubcategoriaRequestDto    | InsertarSubcategoriaResponseDto    | Crea una nueva subcategoría.              |
