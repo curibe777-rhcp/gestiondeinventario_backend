@@ -53,6 +53,43 @@ Las funcionalidades principales son:
 
 ## Endpoints - Subcategoría
 
-| Método | URL             | Request DTO                       | Response DTO                       | Función                                    |
-|--------|-----------------|-----------------------------------|-----------------------------------|-------------------------------------------|
-| POST   | /subcategorias   | InsertarSubcategoriaRequestDto    | InsertarSubcategoriaResponseDto    | Crea una nueva subcategoría.              |
+| Método | URL            | Request DTO                    | Response DTO                        | Función                                                |
+| ------ | -------------- | ------------------------------ | ----------------------------------- | ------------------------------------------------------ |
+| POST   | /subcategorias | InsertarSubcategoriaRequestDto | InsertarSubcategoriaResponseDto     | Crea una nueva subcategoría.                           |
+| PUT    | /subcategorias | EditarSubcategoriaRequestDto   | EditarSubcategoriaResponseDto       | Actualiza una subcategoría existente.                  |
+| DELETE | /subcategorias | EliminarSubcategoriaRequestDto | EliminarSubcategoriaResponseDto     | Marca una subcategoría como desactivada (soft delete). |
+| GET    | /subcategorias | (vacío)                        | List<ListarSubcategoriaResponseDto> | Lista las subcategorías activas (`esDesactivado = 0`). |
+
+
+
+
+
+# Documentación de la API con Swagger
+
+## Integrantes
+- **Angela Vergara Tejada**  
+- **Cristhian Uribe Auqui**  
+- **Yrahi Quispe Reyna**  
+
+## Descripción
+La API cuenta con integración de **Swagger** para la generación automática de documentación interactiva.  
+Esto permite a los desarrolladores y usuarios visualizar de forma clara todos los endpoints disponibles, junto con sus parámetros, modelos de datos y posibles respuestas.  
+
+## Acceso a la Documentación
+1. Levantar el proyecto (ejecutar la aplicación Spring Boot).  
+2. Abrir en el navegador la siguiente URL:
+3. http://localhost:8080/swagger-ui/index.html
+
+## Funcionalidades de Swagger
+Con Swagger podrás:  
+- Explorar todos los **endpoints de la API** clasificados por módulo.  
+- Consultar la **estructura de las peticiones y respuestas** (DTOs).  
+- Realizar **pruebas en tiempo real** de los endpoints directamente desde la interfaz gráfica.  
+- Obtener ejemplos de **códigos de respuesta HTTP** (200, 400, 404, 500, etc.).  
+- Facilitar la comunicación entre desarrolladores gracias a la documentación centralizada.  
+
+## Ventajas
+- Documentación **siempre actualizada** de la API.  
+- Interfaz intuitiva y fácil de usar.  
+- Permite **probar la API sin necesidad de herramientas externas** como Postman o cURL.  
+
