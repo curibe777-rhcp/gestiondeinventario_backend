@@ -14,7 +14,7 @@ public class EliminarProveedorMapper implements IEntityDtoMapper<Proveedor, Elim
     public Proveedor requestToEntity(EliminarProveedorRequestDto requestDto) {
         Proveedor proveedor = new Proveedor();
         proveedor.setIdProveedor(requestDto.getIdProveedor());
-        proveedor.setEsDesactivado(0);
+        proveedor.setEsDesactivado(1);
         return proveedor;
     }
 

@@ -55,6 +55,6 @@ public class ProveedorApplicationService {
     }
 
     public List<ListarProveedorResponseDto> listarProveedores() {
-        return proveedorDomainService.listarProveedores(1).stream().map(listarProveedorMapper::entityToResponse).toList();
+        return proveedorDomainService.listarProveedores(0).stream().map(listarProveedorMapper::entityToResponse).toList();
     }
 }

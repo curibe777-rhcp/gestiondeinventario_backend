@@ -3,7 +3,6 @@ package com.apirest.gestiondeinventario_backend.proveedor.infrastructure.control
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.apirest.gestiondeinventario_backend.common.application.dto.response.BaseResponseDto;
 import com.apirest.gestiondeinventario_backend.proveedor.application.dto.request.EditarProveedorRequestDto;
 import com.apirest.gestiondeinventario_backend.proveedor.application.dto.request.EliminarProveedorRequestDto;
 import com.apirest.gestiondeinventario_backend.proveedor.application.dto.request.InsertarProveedorRequestDto;
@@ -22,6 +22,8 @@ import com.apirest.gestiondeinventario_backend.proveedor.application.dto.respons
 import com.apirest.gestiondeinventario_backend.proveedor.application.dto.response.ListarProveedorResponseDto;
 import com.apirest.gestiondeinventario_backend.proveedor.application.service.ProveedorApplicationService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/proveedores")
 public class ProveedorController {
@@ -30,48 +32,48 @@ public class ProveedorController {
     private ProveedorApplicationService proveedorApplicationService;
 
     @PostMapping("")
-    public ResponseEntity<InsertarProveedorResponseDto> insertarProveedor(
-        @RequestBody InsertarProveedorRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> insertarProveedor(
+       @Valid @RequestBody InsertarProveedorRequestDto requestDto
     ) {
         try {
             InsertarProveedorResponseDto responseDto = proveedorApplicationService.insertarProveedor(requestDto);
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 
     @PutMapping("")
-    public ResponseEntity<EditarProveedorResponseDto> editarProveedor(
-        @RequestBody EditarProveedorRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> editarProveedor(
+       @Valid @RequestBody EditarProveedorRequestDto requestDto
     ) {
         try {
             EditarProveedorResponseDto responseDto = proveedorApplicationService.editarProveedor(requestDto);
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 
     @DeleteMapping("")
-    public ResponseEntity<EliminarProveedorResponseDto> eliminarProveedor(
-        @RequestBody EliminarProveedorRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> eliminarProveedor(
+       @Valid @RequestBody EliminarProveedorRequestDto requestDto
     ) {
         try {
             EliminarProveedorResponseDto responseDto = proveedorApplicationService.eliminarProveedor(requestDto);
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ListarProveedorResponseDto>> listarProveedores() {
+    public ResponseEntity<BaseResponseDto> listarProveedores() {
         try {
             List<ListarProveedorResponseDto> proveedores = proveedorApplicationService.listarProveedores();
-            return ResponseEntity.ok(proveedores);
+            return ResponseEntity.ok(BaseResponseDto.success(proveedores));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 }

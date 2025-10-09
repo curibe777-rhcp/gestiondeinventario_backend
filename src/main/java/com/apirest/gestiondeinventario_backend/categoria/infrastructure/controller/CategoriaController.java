@@ -3,7 +3,6 @@ package com.apirest.gestiondeinventario_backend.categoria.infrastructure.control
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +19,10 @@ import com.apirest.gestiondeinventario_backend.categoria.application.dto.respons
 import com.apirest.gestiondeinventario_backend.categoria.application.dto.response.InsertarCategoriaResponseDto;
 import com.apirest.gestiondeinventario_backend.categoria.application.dto.response.ListarCategoriaResponseDto;
 import com.apirest.gestiondeinventario_backend.categoria.application.service.CategoriaApplicationService;
+import com.apirest.gestiondeinventario_backend.common.application.dto.response.BaseResponseDto;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -31,49 +34,52 @@ public class CategoriaController {
     private CategoriaApplicationService categoriaApplicationService;
     
     @PostMapping("")
-    public ResponseEntity<InsertarCategoriaResponseDto> insertarCategoria(
-        @RequestBody InsertarCategoriaRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> insertarCategoria(
+       @Valid @RequestBody InsertarCategoriaRequestDto requestDto
     ){
         try {
             InsertarCategoriaResponseDto responseDto = categoriaApplicationService.insertarCategoria(requestDto);
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 
 
 
     @PutMapping("")
-    public ResponseEntity<EditarCategoriaResponseDto> editarCategoria(
-        @RequestBody EditarCategoriaRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> editarCategoria(
+       @Valid @RequestBody EditarCategoriaRequestDto requestDto
     ){
-        EditarCategoriaResponseDto responseDto = categoriaApplicationService.editarCategoria(requestDto);
-
-        if (responseDto != null) {
-            return ResponseEntity.ok(responseDto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        try {
+            EditarCategoriaResponseDto responseDto = categoriaApplicationService.editarCategoria(requestDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto)); 
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
+        }  
     }
 
     @DeleteMapping("")
-    public ResponseEntity<EliminarCategoriaResponseDto> eliminarCategoria(
-        @RequestBody EliminarCategoriaRequestDto requestDto
+    public ResponseEntity<BaseResponseDto> eliminarCategoria(
+       @Valid @RequestBody EliminarCategoriaRequestDto requestDto
     ){
         try{
             EliminarCategoriaResponseDto responseDto = categoriaApplicationService.eliminarCategoria(requestDto);
-            return ResponseEntity.ok(responseDto);
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
         }catch(Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
         }
     }
 
 
     @GetMapping("")
-    public ResponseEntity<List<ListarCategoriaResponseDto>> listarCategorias(){
-        List<ListarCategoriaResponseDto> categorias = categoriaApplicationService.listarCategorias();
-        return ResponseEntity.ok(categorias);
+    public ResponseEntity<BaseResponseDto> listarCategorias(){
+        try {
+            List<ListarCategoriaResponseDto> responseDto = categoriaApplicationService.listarCategorias();
+            return ResponseEntity.ok(BaseResponseDto.success(responseDto));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(BaseResponseDto.error(e.getMessage()));
+        }
     }
 
 

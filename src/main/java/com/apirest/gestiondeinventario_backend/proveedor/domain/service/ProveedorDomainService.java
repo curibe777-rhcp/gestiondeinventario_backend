@@ -45,7 +45,7 @@ public class ProveedorDomainService {
         Proveedor proveedor = proveedorRepository.findById(idProveedor).orElse(null);
 
         if (proveedor != null) {
-            proveedor.setEsDesactivado(0);
+            proveedor.setEsDesactivado(1);
             return proveedorRepository.save(proveedor);
         }
         return null;
