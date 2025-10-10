@@ -26,29 +26,29 @@ Las funcionalidades principales son:
 
 ## Endpoints - Producto
 
-| Método | URL       | Request DTO                     | Response DTO                     | Función                                      |
-|--------|-----------|---------------------------------|---------------------------------|---------------------------------------------|
-| POST   | /productos | InsertarProductoRequestDto       | InsertarProductoResponseDto      | Crea un nuevo producto en la base de datos. |
-| PUT    | /productos | EditarProductoRequestDto         | EditarProductoResponseDto        | Actualiza un producto existente.            |
-| DELETE | /productos | EliminarProductoRequestDto       | EliminarProductoResponseDto      | Marca un producto como desactivado (soft delete). |
-| GET    | /productos| (vacío)                          | List<ListarProductosResponseDto> | Lista los productos activos (`esDesactivado = 0`). |
+| Método | URL        | Request DTO                      | Response DTO                     | Función                                            |
+|--------|------------|----------------------------------|----------------------------------|----------------------------------------------------|
+| POST   | /productos | InsertarProductoRequestDto       | InsertarProductoResponseDto      | Crea un nuevo producto en la base de datos.        |
+| PUT    | /productos | EditarProductoRequestDto         | EditarProductoResponseDto        | Actualiza un producto existente.                   |
+| DELETE | /productos | EliminarProductoRequestDto       | EliminarProductoResponseDto      | Marca un producto como desactivado (soft delete).  |
+| GET    | /productos | (vacío)                          | List<ListarProductosResponseDto> | Lista los productos activos (`esDesactivado = 0`). |
 
 ## Endpoints - Categoría
 
-| Método | URL        | Request DTO                     | Response DTO                     | Función                                     |
-|--------|------------|---------------------------------|---------------------------------|--------------------------------------------|
-| POST   | /categorias | InsertarCategoriaRequestDto      | InsertarCategoriaResponseDto     | Crea una nueva categoría.                  |
-| PUT    | /categorias | EditarCategoriaRequestDto        | EditarCategoriaResponseDto       | Actualiza una categoría existente.         |
-| DELETE | /categorias | EliminarCategoriaRequestDto      | EliminarCategoriaResponseDto     | Marca una categoría como desactivada.      |
+| Método | URL        | Request DTO                     | Response DTO                     | Función                                               |
+|--------|------------|---------------------------------|---------------------------------|--------------------------------------------------------|
+| POST   | /categorias | InsertarCategoriaRequestDto      | InsertarCategoriaResponseDto     | Crea una nueva categoría.                           |
+| PUT    | /categorias | EditarCategoriaRequestDto        | EditarCategoriaResponseDto       | Actualiza una categoría existente.                  |
+| DELETE | /categorias | EliminarCategoriaRequestDto      | EliminarCategoriaResponseDto     | Marca una categoría como desactivada.               |
 | GET    | /categorias | (vacío)                          | List<ListarCategoriaResponseDto> | Lista las categorías activas (`esDesactivado = 0`). |
 
 ## Endpoints - Marca
 
-| Método | URL    | Request DTO                  | Response DTO                 | Función                                     |
-|--------|--------|------------------------------|------------------------------|--------------------------------------------|
-| POST   | /marcas | InsertarMarcaRequestDto      | InsertarMarcaResponseDto     | Crea una nueva marca de productos.         |
-| PUT    | /marcas | EditarMarcaRequestDto        | EditarMarcaResponseDto       | Actualiza una marca existente.             |
-| DELETE | /marcas | EliminarMarcaRequestDto      | EliminarMarcaResponseDto     | Marca una marca como desactivada.          |
+| Método | URL     | Request DTO                  | Response DTO                 | Función                                         |
+|--------|---------|------------------------------|------------------------------|-------------------------------------------------|
+| POST   | /marcas | InsertarMarcaRequestDto      | InsertarMarcaResponseDto     | Crea una nueva marca de productos.              |
+| PUT    | /marcas | EditarMarcaRequestDto        | EditarMarcaResponseDto       | Actualiza una marca existente.                  |
+| DELETE | /marcas | EliminarMarcaRequestDto      | EliminarMarcaResponseDto     | Marca una marca como desactivada.               |
 | GET    | /marcas | (vacío)                      | List<ListarMarcaResponseDto> | Lista las marcas activas (`esDesactivado = 0`). |
 
 ## Endpoints - Subcategoría
@@ -60,7 +60,23 @@ Las funcionalidades principales son:
 | DELETE | /subcategorias | EliminarSubcategoriaRequestDto | EliminarSubcategoriaResponseDto     | Marca una subcategoría como desactivada (soft delete). |
 | GET    | /subcategorias | (vacío)                        | List<ListarSubcategoriaResponseDto> | Lista las subcategorías activas (`esDesactivado = 0`). |
 
+## Endpoints - Empleados
 
+| Método | URL        | Request DTO                     | Response DTO                     | Función                                             |
+|--------|------------|---------------------------------|----------------------------------|-----------------------------------------------------|
+| POST   | /empleados | InsertarEmpleadoRequestDto      | InsertarEmpleadoResponseDto      | Crea un nuevo empleado de productos.                |
+| PUT    | /empleados | EditarEmpleadoRequestDto        | EditarEmpleadoResponseDto        | Actualiza un empleado existente.                    |
+| DELETE | /empleados | EliminarEmpleadoRequestDto      | EliminarEmpleadoResponseDto      | Marca un empleado como desactivada.                 |
+| GET    | /empleados | (vacío)                         | List<ListarEmpleadosResponseDto> | Lista los empoleados activos (`esDesactivado = 0`). |
+
+## Endpoints - Proveedores
+
+| Método | URL          | Request DTO                 | Response DTO                     | Función                                              |
+| ------ | ------------ | ----------------------------| ---------------------------------| -----------------------------------------------------|
+| POST   | /proveedores | InsertarProveedorRequestDto | InsertarProveedorResponseDto     | Crea un nuevo proveedor.                             |
+| PUT    | /proveedores | EditarProveedorRequestDto   | EditarProveedorResponseDto       | Actualiza un proveedor existente.                    |
+| DELETE | /proveedores | EliminarProveedorRequestDto | EliminarProveedorResponseDto     | Marca un proveedor como desactivado.                 |
+| GET    | /proveedores | (vacío)                     | List<ListarProveedorResponseDto> | Lista los proveedores activos (`esDesactivado = 0`). |
 
 
 
